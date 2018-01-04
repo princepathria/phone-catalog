@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul>
+{% for message in messages %}
+  <li><strong>{{message}}</strong></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<h1>{{company.name}}</h1>
+
+
+{% for i in products %}
+
+<div>
+    <p>{{i.name}}</p>
+
+    <p>{{i.specs}}</p>
+
+    <p> {{i.price}} </p>
+
+    <p> {{i.rating}} </p>
+
+<a href='{{url_for('editPhone', var = company.id, phone_id = i.id) }}'>Edit</a>
+
+</br>
+<a href = '{{url_for('deletePhone', var = company.id, phone_id = i.id ) }}'>Delete</a>
+
+</div>
+
+
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<form action= "{{url_for('editPhone', var = company_id, phone_id=phone)}}" method = 'POST'>
+
+<p>Name:</p>
+<input type = 'text' size='30' name = 'name' placeholder = '{{phonename}}'>
+
+<input type='submit' value='Edit'>
+</form>
+<a href= '{{url_for('products', var=company_id)}}'>Cancel</a>
+</body>
+</html>
